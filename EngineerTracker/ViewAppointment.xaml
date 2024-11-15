@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="EngineerTracker.ViewAppointment"
+             x:Name="ViewAppointmentPage"
+             xmlns:viewModel="clr-namespace:EngineerTracker.ViewModels"
+             x:DataType="viewModel:ViewAppointmentViewModel">
+    <StackLayout>
+
+        <!-- Label to display Appointment Status -->
+        <Label
+            Padding="50"
+            Text="{Binding Appointment.Status}"
+            Style="{StaticResource Headline}"
+            SemanticProperties.HeadingLevel="Level1" />
+
+        <!-- HorizontalStackLayout for the buttons -->
+        <HorizontalStackLayout HorizontalOptions="Center" Spacing="10" Padding="20">
+
+            <!-- Step Back button -->
+            <Button
+                Text="Step Back"
+                BackgroundColor="Red"
+                TextColor="White"
+                Command="{Binding StepBackCommand}"
+                WidthRequest="100" 
+                IsEnabled="{Binding IsBackButtonEnabled}"/>
+
+            <!-- Back button -->
+            <Button
+                Text="Back"
+                Command="{Binding GoBackCommand}"
+                WidthRequest="100" />
+
+            <!-- Progress button -->
+            <Button
+                Text="Progress"
+                BackgroundColor="Green"
+                TextColor="White"
+                Command="{Binding ProgressCommand}"
+                WidthRequest="100" 
+                IsEnabled="{Binding IsForwardButtonEnabled}"/>
+        </HorizontalStackLayout>
+
+    </StackLayout>
+</ContentPage>
